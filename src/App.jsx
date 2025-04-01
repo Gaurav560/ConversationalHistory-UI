@@ -43,8 +43,9 @@ function App() {
     }
 
     try {
-      // Call API through the Vite proxy
-      const response = await fetch(`/api/?message=${encodeURIComponent(input)}`)
+
+      const encodedMessage = encodeURIComponent(input)
+      const response = await fetch(`/api/${encodedMessage}`)
       const data = await response.text()
 
       // Add bot message
